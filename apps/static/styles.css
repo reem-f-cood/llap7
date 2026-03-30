@@ -1,0 +1,57 @@
+/* التنسيق العام لكل الروابط */
+.styled-link {
+    display: block;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* الرابط الأول */
+.link-one {
+    background-color: #c8f7c5; /* أخضر فاتح */
+    color: red;
+}
+
+/* الرابط الثاني */
+.link-two {
+    background-color: #4d4d4d; /* رمادي غامق */
+    color: yellow;
+}
+
+/* الرابط الثالث */
+.link-three {
+    background-color: black; /* أسود */
+    color: #4da3ff; /* أزرق فاتح */
+}
+
+.format-title {
+    text-align: center;
+    color: darkblue;
+    margin-bottom: 20px;
+}
+
+.styled-table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.styled-table th, 
+.styled-table td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.styled-table th {
+    background-color: #d0e0ff;
+    font-weight: bold;
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

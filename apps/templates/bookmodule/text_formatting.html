@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Formatting</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<h1 class="format-title">Example of Formatting tags</h1>
+
+<p>
+    This is <b>bold</b> text, this is <i>italic</i> text, and this is <u>underlined</u> text.
+</p>
+
+<p>
+    You can also <strong>combine</strong> <em>multiple</em> <u>formatting</u> tags together.
+</p>
+
+<p>
+    Here is a nested example:
+    <b>This sentence has <i>italic inside bold</i> formatting.</b>
+</p>
+
+<p>
+    Chemical formula example: H<sub>2</sub>O  
+</p>
+
+<p>
+    Math example: X<sup>2</sup> + Y<sup>3</sup>
+</p>
+
+</body>
+</html>

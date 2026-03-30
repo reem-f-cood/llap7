@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listing Example</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<h1 class="format-title">Example of Listing</h1>
+
+<h2>Ordered List (Nested)</h2>
+<ol>
+    <li>Programming Languages
+        <ol>
+            <li>Python</li>
+            <li>Java</li>
+            <li>C++
+                <ul>
+                    <li>OOP</li>
+                    <li>Pointers</li>
+                </ul>
+            </li>
+        </ol>
+    </li>
+
+    <li>Web Technologies
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </li>
+</ol>
+
+</body>
+</html>
