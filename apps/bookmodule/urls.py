@@ -10,5 +10,5 @@ urlpatterns = [
  path('text_formatting', views.text_formatting, name='text_formatting'),
  path('listing', views.listing, name='listing'),
  path('tables', views.tables, name='tables'),
-
+ path('search', views.search_books, name='search_books'),
 ]
