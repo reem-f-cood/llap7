@@ -1,6 +1,9 @@
 
 from django.urls import path
 from apps.bookmodule import views
+from . import views
+
+
 urlpatterns = [
  path('', views.index, name= "books.index"),
  path('list_books/', views.list_books, name= "books.list_books"),
@@ -11,4 +14,7 @@ urlpatterns = [
  path('listing', views.listing, name='listing'),
  path('tables', views.tables, name='tables'),
  path('search', views.search_books, name='search_books'),
+ path('add/', views.add_book),
+path('complex/query', views.complex_query, name="books.complex_query"),
+
 ]

@@ -16,6 +16,11 @@
 
 {% block content %}
 <h1>List of Books</h1>
+{% for obj in books %}
+ID: {{obj.id}}, Title: {{obj.title}}
+<hr>
+{% endfor %}
+
 
 <a href="{% url 'books.view_one_book' 1 %}">
     <h2>Internet & World Wide Web How to Program</h2>

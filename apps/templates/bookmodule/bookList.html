@@ -1,15 +1,36 @@
 {% extends "layouts/base.html" %}
+{% load static %}
 
-{% block title %} Results {% endblock title %}
+{% block title %} List of Books {% endblock title %}
+
+{% block stylesheets %}
+<style>
+    h1 { color: green; }
+    h2 { color: lightskyblue; }
+    p {
+        font-family: verdana;
+        font-size: 20px;
+    }
+</style>
+{% endblock stylesheets %}
 
 {% block content %}
-<h2>Search Results</h2>
+
+<h1>List of Books</h1>
+
+
+{% for obj in books %}
+ID: {{obj.id}}, Title: {{obj.title}}
+<hr>
+{% endfor %}
+
+
 
 {% if books %}
     <ul>
         {% for b in books %}
             <li>
-                <strong>{{ b.title }}</strong> — {{ b.author }}
+                <strong>{{ b.title }}</strong> – {{ b.author }}
             </li>
         {% endfor %}
     </ul>
@@ -18,3 +39,4 @@
 {% endif %}
 
 {% endblock content %}
+
