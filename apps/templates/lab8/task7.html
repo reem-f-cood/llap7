@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 7</title>
+</head>
+<body>
+    <h1>Number of Students in Each City</h1>
+
+    <table border="1">
+        <tr>
+            <th>City</th>
+            <th>Number of Students</th>
+        </tr>
+
+        {% for item in data %}
+        <tr>
+            <td>{{ item.city }}</td>
+            <td>{{ item.student_count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

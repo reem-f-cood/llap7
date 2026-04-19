@@ -1,8 +1,45 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book
+from django.db.models import Count, Sum, Avg, Max, Min
+from django.db.models import Q
+from .models import Address
 
 
+
+def task1(request):
+    books = Book.objects.filter(Q(price__lte=80))
+    return render(request, "lab8/task1.html", {"books": books})
+
+def task2(request):
+    books = Book.objects.filter(
+        Q(edition__gt=3) &
+        (Q(title__icontains="qu") | Q(author__icontains="qu"))
+    )
+    return render(request, "lab8/task2.html", {"books": books})
+def task3(request):
+    books = Book.objects.filter(
+        ~Q(edition__gt=3) &
+        ~(Q(title__icontains="qu") | Q(author__icontains="qu"))
+    )
+    return render(request, "lab8/task3.html", {"books": books})
+def task4(request):
+    books = Book.objects.order_by("title")
+    return render(request, "lab8/task4.html", {"books": books})
+
+def task5(request):
+    stats = Book.objects.aggregate(
+        total_books=Count("id"),
+        total_price=Sum("price"),
+        avg_price=Avg("price"),
+        max_price=Max("price"),
+        min_price=Min("price")
+    )
+    return render(request, "lab8/task5.html", {"stats": stats})
+
+def task7(request):
+    data = Address.objects.annotate(student_count=Count("student"))
+    return render(request, "lab8/task7.html", {"data": data})
 
 def add_book(request):
     mybook = Book(
