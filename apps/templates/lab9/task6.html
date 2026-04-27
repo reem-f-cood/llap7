@@ -1,0 +1,15 @@
+<h1>Task 6 - Filtered Books Count per Publisher</h1>
+
+<table border="1">
+    <tr>
+        <th>Publisher</th>
+        <th>Filtered Books Count</th>
+    </tr>
+
+    {% for p in publishers %}
+    <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.filtered_count }}</td>
+    </tr>
+    {% endfor %}
+</table>

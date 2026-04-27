@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Book
-from django.db.models import Count, Sum, Avg, Max, Min
+from django.db.models import Count, Sum, Avg, Max, Min,F
 from django.db.models import Q
 from .models import Address
-
+from django.db.models import Sum
+from .models import Publisher
 
 
 def task1(request):
@@ -112,7 +113,48 @@ def search_books(request):
         return render(request, 'bookmodule/bookList.html', {'books': newBooks})
 
     return render(request, 'bookmodule/search.html')
+def task1(request):
+    total = Book.objects.aggregate(total=Sum('quantity'))['total']
+
+    books = Book.objects.annotate(
+        availability = (F('quantity') * 100.0) / total
+    )
+
+    return render(request, 'lab9/task1.html', {'books': books})
 
 
 
+def task2(request):
+    publishers = Publisher.objects.annotate(
+        total_stock=Sum('book__quantity')
+    )
+    return render(request, 'lab9/task2.html', {'publishers': publishers})
 
+def task3(request):
+    publishers = Publisher.objects.annotate(
+        oldest_book_date=Min('book__pubdate')
+    )
+    return render(request, 'lab9/task3.html', {'publishers': publishers})
+
+from django.db.models import Avg, Min, Max
+
+def task4(request):
+    publishers = Publisher.objects.annotate(
+        avg_price=Avg('book__price'),
+        min_price=Min('book__price'),
+        max_price=Max('book__price'),
+    )
+    return render(request, 'lab9/task4.html', {'publishers': publishers})
+def task5(request):
+    publishers = Publisher.objects.annotate(
+        high_rated_count=Count('book', filter=Q(book__rating__gte=4))
+    )
+    return render(request, 'lab9/task5.html', {'publishers': publishers})
+def task6(request):
+    publishers = Publisher.objects.annotate(
+        filtered_count=Count(
+            'book',
+            filter=Q(book__price__gt=50, book__quantity__lt=5, book__quantity__gte=1)
+        )
+    )
+    return render(request, 'lab9/task6.html', {'publishers': publishers})
