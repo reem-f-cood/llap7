@@ -1,0 +1,19 @@
+<h2>Add New Book</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Title:</label>
+    <input type="text" name="title"><br><br>
+
+    <label>Author:</label>
+    <input type="text" name="author"><br><br>
+
+    <label>Price:</label>
+    <input type="number" name="price" step="0.01"><br><br>
+
+    <button type="submit">Save</button>
+</form>
+
+<br>
+<a href="/books/lab9_part1/listbooks">Back to List</a>

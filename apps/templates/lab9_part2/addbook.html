@@ -1,0 +1,9 @@
+<h2>Add Book (Using Django Form)</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<a href="/books/lab9_part2/listbooks">Back</a>

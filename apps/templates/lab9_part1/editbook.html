@@ -1,0 +1,19 @@
+<h2>Edit Book</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Title:</label>
+    <input type="text" name="title" value="{{ book.title }}"><br><br>
+
+    <label>Author:</label>
+    <input type="text" name="author" value="{{ book.author }}"><br><br>
+
+    <label>Price:</label>
+    <input type="number" name="price" step="0.01" value="{{ book.price }}"><br><br>
+
+    <button type="submit">Update</button>
+</form>
+
+<br>
+<a href="/books/lab9_part1/listbooks">Back to List</a>
